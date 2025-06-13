@@ -18,10 +18,8 @@ document.getElementById("btLogin")?.addEventListener('click', () => {
         localStorage.setItem(
             'user', 
             JSON.stringify({ 
-                username: username,
-                roles: Object.entries(users.find(user => user.username === username && user.password === password))
-                    .filter(([key, value]) => ['admin', 'discarter', 'recycler', 'organizer', 'volunteer'].includes(key) && value === true)
-                    .map(([key]) => key),
+                username,
+                role,
                 token: Math.random().toString(36).substr(2) + Date.now().toString(36) 
             })
         )
