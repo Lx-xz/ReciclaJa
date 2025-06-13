@@ -5,21 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
     <title>ReciclaJá - Configurações</title>
 </head>
 <body>
     <header>
-        <div id="logo">
-            <a href="/">ReciclaJá</a>
-        </div>
+        <div id="logo"></div>
         <nav id="nav"></nav>
     </header>
-    <main>
-        <button id="btLogout">Sair</button>
+    <main id="settings">
+        <button id="btLogout">
+            Sair
+            <span class="material-symbols-outlined icon">
+                logout
+            </span>
+        </button>
     </main>
     <footer>Fortes Engenharia&reg;</footer>
     <script src="script.js"></script>
+    <script src="protect.js"></script>
     <script src="auth.js"></script>
 </body>
 </html>

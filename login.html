@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
     <title>ReciclaJá - Entrar</title>
 </head>
 <body>
     <header>
-        <div id="logo">
-            <a href="/">ReciclaJá</a>
-        </div>
+        <div id="logo"></div>
         <nav id="nav"></nav>
     </header>
     <main id="login">
         <h1>Entrar</h1>
+        <div class="social">
+            <i class="fi fi-brands-google google"></i>
+            <i class="fi fi-brands-facebook facebook"></i>
+        </div>
         <form method="post" onsubmit="event.preventDefault()">
             <label for="inUsername">
                 Nome de Usuário:
@@ -29,10 +32,11 @@
             <button type="submit" id="btLogin">Entrar</button>
         </form>
         <div id="alert"></div>
-        <p>Não possui conta? <a href="register.html">Cadastrar</a></p>
+        <p>Não possui conta? <a href="register.html">Registrar-se</a></p>
     </main>
     <footer>Fortes Engenharia&reg;</footer>
     <script src="script.js"></script>
+    <script src="protect.js"></script>
     <script src="auth.js"></script>
 </body>
 </html>

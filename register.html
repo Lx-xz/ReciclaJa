@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
     <title>ReciclaJá - Cadastrar</title>
 </head>
 <body>
     <header>
-        <div id="logo">
-            <a href="/">ReciclaJá</a>
-        </div>
+        <div id="logo"></div>
         <nav id="nav"></nav>
     </header>
     <main id="register">
-        <h1>Registrar</h1>
+        <h1>Registrar-se</h1>
+        <div class="social">
+            <i class="fi fi-brands-google google"></i>
+            <i class="fi fi-brands-facebook facebook"></i>
+        </div>
         <form method="post" onsubmit="event.preventDefault()">
             <label for="inUsername">
                 Nome de Usuário:
@@ -26,13 +29,24 @@
                 Senha:
                 <input id="inPassword" type="text">
             </label>
-            <button type="submit" id="btRegister">Registrar</button>
+            <label for="inRole">
+                Função:
+                <select id="inRole">
+                    <option value=""></option>
+                    <option value="volunteer">Voluntário</option>
+                    <option value="recycler">Reciclador</option>
+                    <option value="discarter">Descartador</option>
+                    <option value="organizer">Organizador</option>
+                </select>
+            </label>
+            <button type="submit" id="btRegister">Registrar-se</button>
         </form>
         <div id="alert"></div>
         <p>Já possui conta? <a href="login.html">Entrar</a></p>
     </main>
     <footer>Fortes Engenharia&reg;</footer>
     <script src="script.js"></script>
+    <script src="protect.js"></script>
     <script src="auth.js"></script>
 </body>
 </html>
