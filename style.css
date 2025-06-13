@@ -1,0 +1,90 @@
+* { margin: 0; padding: 0; outline: none; border: none; box-sizing: border-box; }
+
+:root {
+    --prim-color: #00c200;
+}
+
+body {
+    min-height: 100vh;
+    max-width: 100vw;
+    display: flex;
+    flex-flow: column;
+
+    header {
+        padding: 1rem;
+        border-bottom: 0.1rem solid #eee;
+        display: flex;
+        justify-content: space-between;
+
+        #logo a {
+            color: var(--prim-color);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 1rem;
+
+            a {
+                color: #eee;
+                text-decoration: none;
+
+                &:hover {
+                    transition: 0.3s;
+                    color: #222;
+                }
+            }
+        }
+    }
+
+    main {
+        flex-grow: 1;
+
+        &#login, &#register {
+            padding: 1rem;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            gap: 0.5rem;
+
+            form {
+                padding: 1rem;
+                border: 0.1rem solid #eee;
+                border-radius: 0.5rem;
+                display: flex;
+                flex-flow: column;
+                gap: 0.5rem;
+
+                label {
+                    display: flex;
+                    flex-flow: column;
+
+                    input {
+                    border: 0.1rem solid #eee;
+                    border-radius: 0.25rem;
+                    padding: 0.5rem;
+                    font-size: 1rem;
+                }
+                }
+
+                button {
+                    background-color: var(--prim-color);
+                    border-radius: 0.25rem;
+                    padding: 0.5rem;
+                    color: #fff;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+
+    footer {
+        background-color: #222;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        color: #fff;
+    }
+}

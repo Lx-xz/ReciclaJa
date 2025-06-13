@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>ReciclaJá - Cadastrar</title>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <a href="/">ReciclaJá</a>
+        </div>
+        <nav id="nav"></nav>
+    </header>
+    <main id="register">
+        <h1>Registrar</h1>
+        <form method="post" onsubmit="event.preventDefault()">
+            <label for="inUsername">
+                Nome de Usuário:
+                <input id="inUsername" type="text">
+            </label>
+            <label for="inPassword">
+                Senha:
+                <input id="inPassword" type="text">
+            </label>
+            <button type="submit" id="btRegister">Registrar</button>
+        </form>
+        <div id="alert"></div>
+        <p>Já possui conta? <a href="login.html">Entrar</a></p>
+    </main>
+    <footer>Fortes Engenharia&reg;</footer>
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
