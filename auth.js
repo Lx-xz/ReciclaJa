@@ -11,10 +11,10 @@ document.getElementById("btLogin")?.addEventListener('click', () => {
 
     const users = JSON.parse(localStorage.getItem('users'))
     
-    const userFound = users.some(user => user.username === username && user.password === password)
+    const userFound = users.find(user => user.username === username && user.password === password)
+    let role = userFound ? userFound.role : null
 
     if (userFound) {
-        
         localStorage.setItem(
             'user', 
             JSON.stringify({ 
