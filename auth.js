@@ -12,15 +12,18 @@ document.getElementById("btLogin")?.addEventListener('click', () => {
     const users = JSON.parse(localStorage.getItem('users'))
     
     const userFound = users.find(user => user.username === username && user.password === password)
+    let id = userFound ? userFound.id : null
     let role = userFound ? userFound.role : null
+    let token = Math.random().toString(36).substr(2) + Date.now().toString(36)
 
     if (userFound) {
         localStorage.setItem(
             'user', 
-            JSON.stringify({ 
+            JSON.stringify({
+                id,
                 username,
                 role,
-                token: Math.random().toString(36).substr(2) + Date.now().toString(36) 
+                token
             })
         )
         window.location.href = 'dashboard.html'
