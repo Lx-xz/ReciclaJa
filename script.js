@@ -66,8 +66,12 @@ const data = {
             col: 10,
             rec: 5
         },
-        organic: {
-            col: 15,
+        glass: {
+            col: 10,
+            rec: 0
+        },
+        eletronic: {
+            col: 5,
             rec: 0
         }
     },
@@ -89,8 +93,12 @@ const data = {
                     col: 0,
                     rec: 0
                 },
-                organic: {
+                glass: {
                     col: 10,
+                    rec: 0
+                },
+                eletronic: {
+                    col: 5,
                     rec: 0
                 }
             }
@@ -112,7 +120,11 @@ const data = {
                     col: 10,
                     rec: 5
                 },
-                organic: {
+                glass: {
+                    col: 10,
+                    rec: 0
+                },
+                eletronic: {
                     col: 5,
                     rec: 0
                 }
@@ -163,9 +175,13 @@ if (!localStorage.getItem('discard')) {
                         col: discard.waste.metal.col,
                         rec: discard.waste.metal.rec
                     },
-                    organic: {
-                        col: discard.waste.organic.col,
-                        rec: discard.waste.organic.rec
+                    glass: {
+                        col: discard.waste.glass.col,
+                        rec: discard.waste.glass.rec
+                    },
+                    eletronic: {
+                        col: discard.waste.eletronic.col,
+                        rec: discard.waste.eletronic.rec
                     }
                 }
             }))
@@ -185,24 +201,24 @@ logo.innerHTML = `
 const nav = document.getElementById('nav')
 
 if (localStorage.getItem('user')) {
-    const dbLink = window.location.pathname.
-    endsWith('dashboard.html') ? '' : `
-        <a href='dashboard.html'>
-            Dashboard
-        <span class="material-symbols-outlined">
-            dashboard
-        </span></a>
-    `
-
     nav.innerHTML += `
-        ${dbLink}
-        <a href='settings.html'><span class="material-symbols-outlined settings">
+        ${window.location.pathname.endsWith('dashboard.html') ? '' : `
+            <a href='dashboard.html'>
+                Dashboard
+                <span class="material-symbols-outlined">
+                    dashboard
+                </span>
+            </a>
+        `}
+        <a href='settings.html' class="settings${window.location.pathname.endsWith('settings.html') ? ' onPage' : ''}">
+            ${window.location.pathname.endsWith('dashboard.html') ? 'Settings' : ''}
+        <span class="material-symbols-outlined">
             settings
         </span></a>
-    `
+    `;
 } else {
     nav.innerHTML = `
-        <a href="register.html">Registrar-se</a>
-        <a href="login.html">Entrar</a>
+        <a href="register.html" ${window.location.pathname.endsWith('register.html') ? 'class="onPage"' : ''}>Registrar-se</a>
+        <a href="login.html" ${window.location.pathname.endsWith('login.html') ? 'class="onPage"' : ''}>Entrar</a>
     `
 }
