@@ -366,6 +366,11 @@ body {
                 position: relative;
                 scroll-behavior: smooth;
 
+                &::-webkit-scrollbar {
+                    width: 0;
+                    background: transparent;
+                }
+
                 > *:not(:last-child) {
                     border-bottom: 0.1rem solid var(--cor-fraca);
                 }
@@ -477,8 +482,10 @@ body {
                                 border: 0.1rem solid var(--cor-fraca);
                                 border-radius: 0.25rem;
                                 flex-flow: row;
+                                user-select: none;
+                                cursor: pointer;
 
-                                &:has(input:checked) {
+                                &:hover, &:has(input:checked) {
                                     transition: 0.3s;
                                     border-color: #000;
                                 }

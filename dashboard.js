@@ -103,7 +103,7 @@ if (user.role === 'admin' || user.role === 'organizer') {
                         return `
                             <label for="check${w}">
                                 ${w}
-                                <input type="checkbox" id="check${w}" value="${w}" onchange="toggleWasteInput('${w}')">
+                                <input type="checkbox" class="wasteCheckboxes" id="check${w}" value="${w}">
                             </label>
                         `
                     }).join('')}
@@ -112,37 +112,46 @@ if (user.role === 'admin' || user.role === 'organizer') {
         </div>
     `
 
-    const form = document.getElementById('addDiscardForm')
-    function toggleWasteInput(w) {
-        if (wasteInputs.includes(w)) {
-            wasteInputs.splice(wasteInputs.indexOf(w), 1)
-        } else {
-            wasteInputs.push(w)
-        }
-
-        Array.from(form.querySelectorAll('.waste-input')).forEach(el => el.remove())
-
-        wasteInputs.forEach((w) => {
-            const label = document.createElement('label')
-            label.classList.add('waste-input')
-            label.setAttribute('for', `in${w}`)
-            label.innerHTML = `
-            ${w}:
-            <input type="text" id="in${w}">
-            `
-            form.appendChild(label)
-        })
-
-        if (form.contains(button)) {
-            form.removeChild(button)
-        }
+    setTimeout(() => {
+        const form = document.getElementById('addDiscardForm')
+        const button = document.createElement('button')
+        button.id = 'btAddDiscard'
+        button.innerHTML = 'Adicionar'
         form.appendChild(button)
-    }
 
-    const button = document.createElement('button')
-    button.id = 'btAddDiscard'
-    button.innerHTML = 'Adicionar'
-    form.appendChild(button)
+        function toggleWasteInput(w) {
+            if (wasteInputs.includes(w)) {
+                wasteInputs.splice(wasteInputs.indexOf(w), 1)
+            } else {
+                wasteInputs.push(w)
+            }
+
+            Array.from(form.querySelectorAll('.waste-input')).forEach(el => el.remove())
+
+            wasteInputs.forEach((w) => {
+                const label = document.createElement('label')
+                label.classList.add('waste-input')
+                label.setAttribute('for', `in${w}`)
+                label.innerHTML = `
+                ${w}:
+                <input type="text" id="in${w}">
+                `
+                form.appendChild(label)
+            })
+
+            if (form.contains(button)) {
+                form.removeChild(button)
+            }
+            form.appendChild(button)
+        }
+
+        const wasteCheckboxes = document.getElementsByClassName('wasteCheckboxes')
+        Array.from(wasteCheckboxes).forEach((checkbox) => {
+            checkbox.addEventListener("change", function() {
+                toggleWasteInput(this.value)
+            })
+        })
+    }, 0)
 }
 
 if (user.role === 'discarder') {
